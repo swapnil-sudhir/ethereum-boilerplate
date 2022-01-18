@@ -29,7 +29,7 @@ export default function QuickStart({ isServerInfo }) {
 
   return (
     <div style={{ display: "flex", gap: "10px" }}>
-      <Card
+      {/* <Card
         style={styles.card}
         title={
           <>
@@ -129,9 +129,9 @@ export default function QuickStart({ isServerInfo }) {
             <Text style={styles.text}>BUIDL!!!</Text>
           </Timeline.Item>
         </Timeline>
-      </Card>
+      </Card> */}
       <div>
-        <Card
+        {/* <Card
           style={styles.card}
           title={
             <>
@@ -169,8 +169,8 @@ export default function QuickStart({ isServerInfo }) {
               </Text>
             </Timeline.Item>
           </Timeline>
-        </Card>
-        <Card
+        </Card> */}
+        {/* <Card
           style={{ marginTop: "10px", ...styles.card }}
           title={
             <>
@@ -199,7 +199,7 @@ export default function QuickStart({ isServerInfo }) {
               </Text>
             </Timeline.Item>
           </Timeline>
-        </Card>
+        </Card> */}
       </div>
     </div>
   );

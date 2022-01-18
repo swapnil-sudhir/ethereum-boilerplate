@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useMoralis, useNFTBalances } from "react-moralis";
+import { useMoralis } from "react-moralis";
 import { Card, Image, Tooltip, Modal, Input, Skeleton } from "antd";
 import { FileSearchOutlined, SendOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { getExplorer } from "helpers/networks";
 import AddressInput from "./AddressInput";
 import { useVerifyMetadata } from "hooks/useVerifyMetadata";
+import { useNFTTokenIds } from "../hooks/useNFTTokenId";
 
 const { Meta } = Card;
 
@@ -21,8 +22,8 @@ const styles = {
   },
 };
 
-function NFTBalance() {
-  const { data: NFTBalances } = useNFTBalances();
+function NFTTokenIds() {
+  const { data: NFTTokenIds } = useNFTTokenIds();
   const { Moralis, chainId } = useMoralis();
   const [visible, setVisibility] = useState(false);
   const [receiverToSend, setReceiver] = useState(null);
@@ -64,14 +65,14 @@ function NFTBalance() {
     setAmount(e.target.value);
   };
 
-  console.log("NFTBalances", NFTBalances);
+  console.log("NFTTokenIds", NFTTokenIds);
   return (
     <div style={{ padding: "15px", maxWidth: "1030px", width: "100%" }}>
-      <h1>🖼 NFT Balances</h1>
+      <h1>🖼 NFT TokenIds</h1>
       <div style={styles.NFTs}>
-        <Skeleton loading={!NFTBalances?.result}>
-          {NFTBalances?.result &&
-            NFTBalances.result.map((nft, index) => {
+        <Skeleton loading={!NFTTokenIds?.result}>
+          {NFTTokenIds?.result &&
+            NFTTokenIds.result.map((nft, index) => {
               //Verify Metadata
               nft = verifyMetadata(nft);
               return (
@@ -125,4 +126,4 @@ function NFTBalance() {
   );
 }
 
-export default NFTBalance;
+export default NFTTokenIds;
